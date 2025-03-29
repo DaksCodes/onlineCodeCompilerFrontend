@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 
+const API_URL = "https://your-backend.onrender.com"; // Replace with your actual backend URL
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState("cpp");
@@ -11,30 +13,39 @@ function App() {
   // Function to execute code
   const runCode = async () => {
     setOutput("Running...");
-    const response = await fetch("http://localhost:5000/run", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ language, code }),
-    });
-    const data = await response.json();
-    setOutput(data.output);
+    try {
+      const response = await fetch(`${API_URL}/run`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ language, code }),
+      });
+      const data = await response.json();
+      setOutput(data.output);
+    } catch (error) {
+      setOutput("Error connecting to the server.");
+    }
   };
 
   // Function to analyze complexity
   const analyzeComplexity = async () => {
     setComplexity("Analyzing...");
-    const response = await fetch("http://localhost:5000/complexity", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ language, code }),
-    });
-    const data = await response.json();
-    setComplexity(data.complexity);
+    try {
+      const response = await fetch(`${API_URL}/complexity`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ language, code }),
+      });
+      const data = await response.json();
+      setComplexity(data.complexity);
+    } catch (error) {
+      setComplexity("Error analyzing complexity.");
+    }
   };
 
   return (
     <div className={`app-container ${darkMode ? "dark-mode" : "light-mode"}`}>
       <h1 className="app-title">CodeIQ</h1>
+
       {/* Dark Mode Toggle */}
       <button className="toggle-btn" onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
