@@ -1,0 +1,97 @@
+/* Light Mode */
+.app-container {
+  background-color: rgb(214, 210, 210);
+  color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* Code Editor */
+.code-editor {
+  width: 80%;
+  height: 300px;
+  background-color: #f4f4f4;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Dark Mode Editor */
+.dark-mode .code-editor {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* Run & Complexity Buttons */
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.run-btn, .complexity-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Run Code Button */
+.run-btn {
+  background-color: green; /* Light mode: Green */
+  color: white;
+}
+
+/* Dark Mode Run Code Button */
+.dark-mode .run-btn {
+  background-color: orange; /* Dark mode: Orange */
+  color: black;
+}
+
+/* Complexity Button */
+.complexity-btn {
+  background-color: blue;
+  color: white;
+}
+
+/* Dark Mode Complexity Button */
+.dark-mode .complexity-btn {
+  background-color: purple;
+}
+
+/* Output Box */
+.output-container, .complexity-container {
+  margin-top: 20px;
+  width: 80%;
+  text-align: left;
+}
+
+.output-box, .complexity-box {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 50px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  white-space: pre-wrap;
+}
+
+/* Dark Mode Output */
+.dark-mode .output-box, .dark-mode .complexity-box {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+}
