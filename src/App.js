@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const API_URL = "https://onlinecodeeditor-i88n.onrender.com/run";
+const API_URL = "https://onlinecodeeditor-i88n.onrender.com";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
